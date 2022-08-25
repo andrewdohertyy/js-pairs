@@ -1,0 +1,47 @@
+* { margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+min-height: 100vh;
+background: #1abc9c;
+font-family: arial;
+position: relative;
+text-align: center;
+}
+
+.heading {
+color: black;
+padding: 10px 5px;
+}
+
+.container {
+    background-color: grey;
+    width:100vw;
+    height: 100vh;
+    padding: 10px;
+    
+    &__card {
+        background-color: green;
+        width: 40px;
+        height: 40px;
+        float: left;
+        border: black solid 2px;
+    }
+}
+
+
+card:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+box.img {
+    width: 100%;
+    display: block;
+}
