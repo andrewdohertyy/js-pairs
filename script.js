@@ -21,6 +21,15 @@ const startTimer = () => {
         sec ++
     }, 1000)
 }
+
+//   setTimeout(() => {
+//         timeDisplay.innerHTML = sec + '😴😴😴'
+//       },
+//       4 * 1000
+//     );
+
+
+
 //when the start button is clicked it will hide and generate a random order of the array
 const randomStart = () => {
     container.classList.remove('display')

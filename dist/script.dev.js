@@ -20,7 +20,12 @@ var startTimer = function startTimer() {
     timeDisplay.innerHTML = sec;
     sec++;
   }, 1000);
-}; //when the start button is clicked it will hide and generate a random order of the array
+}; //   setTimeout(() => {
+//         timeDisplay.innerHTML = sec + '😴😴😴'
+//       },
+//       4 * 1000
+//     );
+//when the start button is clicked it will hide and generate a random order of the array
 
 
 var randomStart = function randomStart() {

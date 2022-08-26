@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(#CC95C0,#DBD4B4,#7AA1D2);
+    color: white;
+}
 
 
 
@@ -11,7 +15,10 @@
 
 .heading {
     text-align: center;
-    padding: 10px;
+    font-size: small;
+    padding: 30px;
+    color: white;
+    text-shadow: -1px -1px 0 lightseagreen, 1px -1px 0 lightseagreen, -1px 1px 0 lightseagreen, 1px 1px 0 lightseagreen;
 
     &__h1 {
         padding-bottom: 20px;
@@ -35,59 +42,52 @@
     &__card {
         padding-left: 14px;
         padding-top: 9px;
-        width: 60px;
-        height: 60px;
-        background-color: grey;
+        width: 65px;
+        height: 65px;
+        background-color: lightseagreen;
         color: transparent;
         display: block;
         font-size: xx-large;
         font-weight: bold;
         align-items: center;
         justify-content: center;
-        border: 1px solid black;
+        border: 1px solid white;
         cursor: pointer;
     }
-}
+}  
 
 
-@media screen and (min-width: 768px) {
-    .container {
-        display: grid;
-        border: solid black 2px;
-        margin-left: 40px;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        justify-content: center;
+.end {
+    text-align: center;
+    margin-top: 15vh;
+    justify-items: center;
+    height: 40%;
+    padding: 40px;
+    color: white;
+    text-shadow: -1px -1px 0 lightseagreen, 1px -1px 0 lightseagreen, -1px 1px 0 lightseagreen, 1px 1px 0 lightseagreen
+
+    &__congrats {
+        padding: 20px;
+    }
+
+    &__timestamp {
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+
+    &__play-again {
+        border: solid white 2px;
         align-items: center;
-        height: 80vh;
-        width: 90vw;
+        justify-content: center;
+        padding: 10px;
+        width: 50px;
+        text-align: center;
+        box-sizing: content-box;
+        display: block;
+        margin: 2px auto;
 
-        &__card {
-            padding-left: 30px;
-            padding-top: 30px;
-            font-size: 120px;
-            width: 100px;
-            height: 100px;
-            background-color: grey;
-            color: transparent;
-            display: block;
-            font-size: xx-large;
-            font-weight: bold;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid black;
-            cursor: pointer;
-        }
     }
 }
-    
-
-
-
 
 
 // to put into a different folder
@@ -99,18 +99,18 @@
 
 
 .show {
-    animation: show 0.2s forwards;
+    animation: show 0.5s forwards;
 }
 
 
 .hide {
-    animation: hide 3s forwards;
+    animation: hide 2s forwards;
 }
 
 
 @keyframes show {
     0% {
-        background-color: red;
+        background-color: lightgreen;
         color: transparent;
     }
 
@@ -122,7 +122,7 @@
 
 @keyframes hide {
     0% {
-        background-color: lightgreen;
+        background-color: red;
         color: black;
     }
 
@@ -130,4 +130,71 @@
         background-color: red;
         color: transparent;
     }
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        border: solid white 2px;
+        margin-left: 40px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 80vh;
+        width: 90vw;
+
+        &__card {
+            padding-left: 30px;
+            padding-top: 30px;
+            font-size: 120px;
+            width: 100px;
+            height: 100px;
+            font-size: xx-large;
+        }
+    }
+
+.end {
+    font-size: x-large;
+    height: 60%;
+    padding: 50px;
+    
+    &__play-again {
+        width: 80px;
+
+    }
+}
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        margin-left: 40px;
+        padding-left: 75px;
+        padding-right: 20px;
+        padding-top: 50px;
+        padding-bottom: 75px;
+        
+        &__card {
+            padding-left: 40px;
+            padding-top: 40px;
+            font-size: 180px;
+            width: 120px;
+            height: 120px;
+            font-size: xx-large;
+        }
+    }
+
+.end {
+    font-size: x-large;
+    height: 60%;
+    padding: 50px;
+    
+    &__play-again {
+        width: 80px;
+
+    }
+}
 }
