@@ -36,10 +36,12 @@ const randomStart = () => {
     startButton.classList.add('display')
     endGame.classList.add('display');
     timeDisplay.classList.remove('display')
+
     cards.forEach((card) => {
     let randomNum = Math.floor(Math.random() * 24);        
     card.style.order = randomNum;
     startTimer();
+
 })}
 
 const startAgain = () => {
@@ -47,10 +49,22 @@ const startAgain = () => {
 }
 
 
+
 //event listeners for when the game starts or starts again
 again.addEventListener("click", startAgain);
 startButton.addEventListener("click", randomStart);
 
+
+
+const cardsMatch = () => {
+    if (first.innerHTML === second.innerHTML) {
+        first.style.pointerEvents = 'none';
+        second.style.pointerEvents = 'none';
+        first = undefined;
+        second = undefined;
+        matchCounter ++;
+    }
+}
 
 //loops through the cards array to find matches.
 cards.forEach((card) => {
@@ -61,14 +75,7 @@ cards.forEach((card) => {
         } else if (first && !second) {
             second = card;
             card.classList.add('show');
-        }
-        if (first.innerHTML === second.innerHTML) {
-            first.style.pointerEvents = 'none';
-            second.style.pointerEvents = 'none';
-            first = undefined;
-            second = undefined;
-            matchCounter ++;
-        }
+        } cardsMatch();
 
         if (matchCounter >= 12) {
             container.classList.add('display');
@@ -76,6 +83,7 @@ cards.forEach((card) => {
             timeDisplay.classList.add('display');
             headingContainer.classList.add('display');
             timeStamp.innerHTML = `You completed the puzzle in ${timeDisplay.innerHTML} seconds! Well done!`
+    
         }  else {
             first.classList.add('hide');
             second.classList.add('hide');
@@ -89,5 +97,6 @@ cards.forEach((card) => {
             second = undefined;
             }, 500);
         }
+
     })
 });

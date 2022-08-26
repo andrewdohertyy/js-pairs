@@ -46,7 +46,18 @@ var startAgain = function startAgain() {
 
 
 again.addEventListener("click", startAgain);
-startButton.addEventListener("click", randomStart); //loops through the cards array to find matches.
+startButton.addEventListener("click", randomStart);
+
+var cardsMatch = function cardsMatch() {
+  if (first.innerHTML === second.innerHTML) {
+    first.style.pointerEvents = 'none';
+    second.style.pointerEvents = 'none';
+    first = undefined;
+    second = undefined;
+    matchCounter++;
+  }
+}; //loops through the cards array to find matches.
+
 
 cards.forEach(function (card) {
   card.addEventListener('click', function () {
@@ -58,13 +69,7 @@ cards.forEach(function (card) {
       card.classList.add('show');
     }
 
-    if (first.innerHTML === second.innerHTML) {
-      first.style.pointerEvents = 'none';
-      second.style.pointerEvents = 'none';
-      first = undefined;
-      second = undefined;
-      matchCounter++;
-    }
+    cardsMatch();
 
     if (matchCounter >= 12) {
       container.classList.add('display');
