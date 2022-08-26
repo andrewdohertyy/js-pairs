@@ -8,41 +8,44 @@
 </head>
 <body>
     <header class="heading">
-        <h1 class="heading__h1">Memory Game</h1>
+        <h1 class="heading__h1">Welcome to the emoji memory game!</h1>
+        <div class="heading__button">Click here to play!</div>
+        <div class="heading__timer display"></div>
+        <h1 class="heading__score display"></h1>
     </header>
+   <main class="container display">
+            <div class="container__card">😂</div>
+            <div class="container__card">😂</div>
+            <div class="container__card">🤪</div>
+            <div class="container__card">🤪</div>
+            <div class="container__card">🤯</div>
+            <div class="container__card">🤯</div>
+            <div class="container__card">🥶</div>
+            <div class="container__card">🥶</div>
+            <div class="container__card">😵‍💫</div>
+            <div class="container__card">😵‍💫</div>
+            <div class="container__card">🎣</div>
+            <div class="container__card">🎣</div>
+            <div class="container__card">🌝</div>
+            <div class="container__card">🌝</div>
+            <div class="container__card">🌚</div>
+            <div class="container__card">🌚</div>
+            <div class="container__card">🫠</div>
+            <div class="container__card">🫠</div>
+            <div class="container__card">🤠</div>
+            <div class="container__card">🤠</div>
+            <div class="container__card">👽</div>
+            <div class="container__card">👽</div>
+            <div class="container__card">🧐</div>
+            <div class="container__card">🧐</div>
+    </main>
 
-    <div class="container">
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-        <div class="container__card game"></div>
-    </div>
+    <section class="end display">
+        <h1 class="end__congrats">Congratulations 🥳🎊🎉</h1>
+        <div class="end__timestamp"></div>
+        <button class="end__play-again">Play Again?</button>
 
-    <div id="inPlay">
-        <h1 id="timer">Timer</h1>
-    </div>
-    
-    <div class="end hide">
-        <h1 class="end__message">Well Done!</h1>
-        <a class="end__playAgain">Play Again?</a>
-    </div>
-    
+    </section>
     <script src="./script.js"></script>
 </body>
 </html>
