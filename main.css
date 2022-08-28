@@ -7,6 +7,7 @@
 body {
   background-image: linear-gradient(#CC95C0, #DBD4B4, #7AA1D2);
   color: white;
+  font-family: "Roboto", sans-serif;
 }
 
 .heading {
@@ -17,6 +18,9 @@ body {
 }
 .heading__h1 {
   padding-bottom: 20px;
+}
+.heading__score {
+  padding-bottom: 10px;
 }
 
 .container {
@@ -139,12 +143,19 @@ body {
   }
 }
 @media screen and (min-width: 1024px) {
+  .heading {
+    padding: 20px;
+  }
+
   .container {
-    margin-left: 40px;
-    padding-left: 75px;
-    padding-right: 20px;
-    padding-top: 50px;
-    padding-bottom: 75px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    padding-left: 35px;
+    padding-right: 15px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    height: 98vh;
+    width: 90vw;
   }
   .container__card {
     padding-left: 40px;

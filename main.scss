@@ -10,6 +10,7 @@
 body {
     background-image: $background-gradient;
     color: $colorwhite;
+    font-family: $font-robot;
 }
 
 
@@ -24,6 +25,9 @@ body {
 
     &__h1 {
         padding-bottom: 20px;
+    }
+    &__score {
+        padding-bottom: 10px;
     }
 }
 
@@ -172,12 +176,18 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+    .heading {
+        padding: 20px;
+    }
     .container {
-        margin-left: 40px;
-        padding-left: 75px;
-        padding-right: 20px;
-        padding-top: 50px;
-        padding-bottom: 75px;
+        margin-left: 50px ;
+        margin-bottom: 25px;
+        padding-left: 35px;
+        padding-right:15px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        height: 98vh;
+        width: 90vw;
 
         &__card {
             padding-left: 40px;

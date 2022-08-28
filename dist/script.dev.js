@@ -17,7 +17,7 @@ var matchCounter = 0; //a timer for when the start game is clicked
 var startTimer = function startTimer() {
   var sec = 0;
   timer = setInterval(function () {
-    timeDisplay.innerHTML = sec;
+    timeDisplay.innerHTML = "Timer: " + sec;
     sec++;
   }, 1000);
 }; //   setTimeout(() => {
@@ -55,6 +55,7 @@ var cardsMatch = function cardsMatch() {
     first = undefined;
     second = undefined;
     matchCounter++;
+    scoreTotal.innerHTML = "Pairs made: " + matchCounter;
   }
 }; //loops through the cards array to find matches.
 

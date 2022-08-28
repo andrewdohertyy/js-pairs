@@ -17,7 +17,7 @@ let matchCounter = 0;
 const startTimer = () => {
     let sec = 0;
     timer = setInterval(() => {
-        timeDisplay.innerHTML =  sec;
+        timeDisplay.innerHTML = "Timer: " + sec;
         sec ++
     }, 1000)
 }
@@ -49,7 +49,6 @@ const startAgain = () => {
 }
 
 
-
 //event listeners for when the game starts or starts again
 again.addEventListener("click", startAgain);
 startButton.addEventListener("click", randomStart);
@@ -63,6 +62,7 @@ const cardsMatch = () => {
         first = undefined;
         second = undefined;
         matchCounter ++;
+        scoreTotal.innerHTML = "Pairs made: " + matchCounter;
     }
 }
 
