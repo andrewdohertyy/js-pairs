@@ -1,3 +1,6 @@
+@use "./SCSS/styles.scss" as *;
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,8 +8,8 @@
 }
 
 body {
-    background-image: linear-gradient(#CC95C0,#DBD4B4,#7AA1D2);
-    color: white;
+    background-image: $background-gradient;
+    color: $colorwhite;
 }
 
 
@@ -17,8 +20,7 @@ body {
     text-align: center;
     font-size: small;
     padding: 30px;
-    color: white;
-    text-shadow: -1px -1px 0 lightseagreen, 1px -1px 0 lightseagreen, -1px 1px 0 lightseagreen, 1px 1px 0 lightseagreen;
+    color: $colorwhite;
 
     &__h1 {
         padding-bottom: 20px;
@@ -45,14 +47,14 @@ body {
         padding-top: 9px;
         width: 65px;
         height: 65px;
-        background-color: lightseagreen;
+        background-color: $colorlightseagreen;
         color: transparent;
         display: block;
         font-size: xx-large;
         font-weight: bold;
         align-items: center;
         justify-content: center;
-        border: 1px solid white;
+        border: 1px solid $colorwhite;
         cursor: pointer;
     }
 }  
@@ -64,8 +66,7 @@ body {
     justify-items: center;
     height: 40%;
     padding: 40px;
-    color: white;
-    text-shadow: -1px -1px 0 lightseagreen, 1px -1px 0 lightseagreen, -1px 1px 0 lightseagreen, 1px 1px 0 lightseagreen
+    color: $colorwhite;
 
     &__congrats {
         padding: 20px;
@@ -77,7 +78,7 @@ body {
     }
 
     &__play-again {
-        border: solid white 2px;
+        border: solid $colorwhite 2px;
         align-items: center;
         justify-content: center;
         padding: 10px;
@@ -111,24 +112,24 @@ body {
 
 @keyframes show {
     0% {
-        background-color: lightgreen;
+        background-color: $colorlightgreen;
         color: transparent;
     }
 
     100% {
-        background-color: lightgreen;
-        color: black;
+        background-color: $colorlightgreen;
+        color: $colorblack;
     }
 }
 
 @keyframes hide {
     0% {
-        background-color: red;
-        color: black;
+        background-color: $colorred;
+        color: $colorblack;
     }
 
     100% {
-        background-color: red;
+        background-color: $colorred;
         color: transparent;
     }
 }
@@ -139,7 +140,7 @@ body {
 
 @media screen and (min-width: 768px) {
     .container {
-        border: solid white 2px;
+        border: solid $colorwhite 2px;
         margin-left: 40px;
         padding-top: 50px;
         padding-bottom: 50px;

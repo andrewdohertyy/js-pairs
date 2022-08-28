@@ -14,7 +14,6 @@ body {
   font-size: small;
   padding: 30px;
   color: white;
-  text-shadow: -1px -1px 0 lightseagreen, 1px -1px 0 lightseagreen, -1px 1px 0 lightseagreen, 1px 1px 0 lightseagreen;
 }
 .heading__h1 {
   padding-bottom: 20px;
@@ -58,8 +57,9 @@ body {
   height: 40%;
   padding: 40px;
   color: white;
-  text-shadow: -1px -1px 0 lightseagreen, 1px -1px 0 lightseagreen, -1px 1px 0 lightseagreen, 1px 1px 0 lightseagreen .end __congrats;
-  text-shadow-padding: 20px;
+}
+.end__congrats {
+  padding: 20px;
 }
 .end__timestamp {
   padding: 20px;
