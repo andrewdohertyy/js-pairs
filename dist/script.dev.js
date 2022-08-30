@@ -8,20 +8,11 @@ var headingContainer = document.querySelector(".heading");
 var startButton = document.querySelector(".heading__button");
 var scoreTotal = document.querySelector(".heading__score");
 var timeDisplay = document.querySelector(".heading__timer");
-var timeStamp = document.querySelector('.end__timestamp'); // const username = document.getElementById('end__username');
-// const saveScoreButton = document.getElementById('saveScoreBtn');
-// const mostRecentScore = localStorage.getItem('mostRecentScore')
-
+var timeStamp = document.querySelector('.end__timestamp');
 var first;
 var second;
 var timer;
-var matchCounter = 0; // username.addEventListener('keyup', () => {
-//     saveScoreButton.disabled = !username.value; 
-// })
-// saveHighScore = (event) => {
-//     endGame.preventDefault();
-// }
-//a timer for when the start game is clicked
+var matchCounter = 0; //a timer for when the start game is clicked
 
 var startTimer = function startTimer() {
   var sec = 0;
@@ -29,12 +20,7 @@ var startTimer = function startTimer() {
     timeDisplay.innerHTML = sec;
     sec++;
   }, 1000);
-}; //   setTimeout(() => {
-//         timeDisplay.innerHTML = sec + '😴😴😴'
-//       },
-//       4 * 1000
-//     );
-//when the start button is clicked it will hide and generate a random order of the array
+}; //when the start button is clicked it will hide and generate a random order of the array
 
 
 var randomStart = function randomStart() {
@@ -47,15 +33,13 @@ var randomStart = function randomStart() {
     card.style.order = randomNum;
     startTimer();
   });
-};
+}; //restarts game
+
 
 var startAgain = function startAgain() {
   location.reload();
-}; //event listeners for when the game starts or starts again
+}; //when two cards match when clicked one after the other this function will update the match counter
 
-
-again.addEventListener("click", startAgain);
-startButton.addEventListener("click", randomStart);
 
 var cardsMatch = function cardsMatch() {
   if (first.innerHTML === second.innerHTML) {
@@ -66,6 +50,29 @@ var cardsMatch = function cardsMatch() {
     matchCounter++;
     scoreTotal.innerHTML = "Pairs made: " + matchCounter;
   }
+}; //when all matches have been achieved this function adds the end display 
+
+
+var allMatches = function allMatches() {
+  container.classList.add('display');
+  endGame.classList.remove('display');
+  timeDisplay.classList.add('display');
+  headingContainer.classList.add('display');
+  timeStamp.innerHTML = "You completed the puzzle in ".concat(timeDisplay.innerHTML, " seconds! Well done!");
+}; // if all 12 matches havent been complete this function sets them back to their original state
+
+
+var notAllMatches = function notAllMatches() {
+  first.classList.add('hide');
+  second.classList.add('hide');
+  setTimeout(function () {
+    first.classList.remove('show');
+    second.classList.remove('show');
+    first.classList.remove('hide');
+    second.classList.remove('hide');
+    first = undefined;
+    second = undefined;
+  }, 500);
 }; //loops through the cards array to find matches.
 
 
@@ -81,23 +88,13 @@ cards.forEach(function (card) {
 
     cardsMatch();
 
-    if (matchCounter >= 12) {
-      container.classList.add('display');
-      endGame.classList.remove('display');
-      timeDisplay.classList.add('display');
-      headingContainer.classList.add('display');
-      timeStamp.innerHTML = "You completed the puzzle in ".concat(timeDisplay.innerHTML, " seconds! Well done!"); // localStorage.setItem('mostRecentScore', timeDisplay.innerHTML);
+    if (matchCounter >= 2) {
+      allMatches();
     } else {
-      first.classList.add('hide');
-      second.classList.add('hide');
-      setTimeout(function () {
-        first.classList.remove('show');
-        second.classList.remove('show');
-        first.classList.remove('hide');
-        second.classList.remove('hide');
-        first = undefined;
-        second = undefined;
-      }, 500);
+      notAllMatches();
     }
   });
-});
+}); //event listeners for when the game starts or starts again
+
+again.addEventListener("click", startAgain);
+startButton.addEventListener("click", randomStart);

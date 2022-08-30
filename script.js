@@ -7,22 +7,12 @@ const startButton = document.querySelector(".heading__button");
 const scoreTotal = document.querySelector(".heading__score");
 const timeDisplay = document.querySelector(".heading__timer");
 const timeStamp = document.querySelector('.end__timestamp');
-// const username = document.getElementById('end__username');
-// const saveScoreButton = document.getElementById('saveScoreBtn');
-// const mostRecentScore = localStorage.getItem('mostRecentScore')
 
 let first;
 let second;
 let timer;
 let matchCounter = 0;
 
-// username.addEventListener('keyup', () => {
-//     saveScoreButton.disabled = !username.value; 
-// })
-
-// saveHighScore = (event) => {
-//     endGame.preventDefault();
-// }
 
 
 //a timer for when the start game is clicked
@@ -33,14 +23,6 @@ const startTimer = () => {
         sec ++
     }, 1000)
 }
-
-//   setTimeout(() => {
-//         timeDisplay.innerHTML = sec + '😴😴😴'
-//       },
-//       4 * 1000
-//     );
-
-
 
 //when the start button is clicked it will hide and generate a random order of the array
 const randomStart = () => {
@@ -53,20 +35,14 @@ const randomStart = () => {
     let randomNum = Math.floor(Math.random() * 24);        
     card.style.order = randomNum;
     startTimer();
-
 })}
 
+//restarts game
 const startAgain = () => {
     location.reload();
-}
+} 
 
-
-//event listeners for when the game starts or starts again
-again.addEventListener("click", startAgain);
-startButton.addEventListener("click", randomStart);
-
-
-
+//when two cards match when clicked one after the other this function will update the match counter
 const cardsMatch = () => {
     if (first.innerHTML === second.innerHTML) {
         first.style.pointerEvents = 'not-allowed';
@@ -78,6 +54,30 @@ const cardsMatch = () => {
     }
 }
 
+//when all matches have been achieved this function adds the end display 
+const allMatches = () => {
+    container.classList.add('display');
+    endGame.classList.remove('display');
+    timeDisplay.classList.add('display');
+    headingContainer.classList.add('display');
+    timeStamp.innerHTML = `You completed the puzzle in ${timeDisplay.innerHTML} seconds! Well done!`
+}
+
+// if all 12 matches havent been complete this function sets them back to their original state
+const notAllMatches = () => {
+    first.classList.add('hide');
+    second.classList.add('hide');
+    setTimeout(() => {
+    first.classList.remove('show');
+    second.classList.remove('show');
+    first.classList.remove('hide');
+    second.classList.remove('hide');
+    first = undefined;
+    second = undefined;
+    }, 500);
+}
+
+
 //loops through the cards array to find matches.
 cards.forEach((card) => {
     card.addEventListener('click', () => {
@@ -87,31 +87,18 @@ cards.forEach((card) => {
         } else if (first && !second) {
             second = card;
             card.classList.add('show');
-        } cardsMatch();
+        }   cardsMatch();
 
-        if (matchCounter >= 12) {
-            container.classList.add('display');
-            endGame.classList.remove('display');
-            timeDisplay.classList.add('display');
-            headingContainer.classList.add('display');
-            timeStamp.innerHTML = `You completed the puzzle in ${timeDisplay.innerHTML} seconds! Well done!`
-            // localStorage.setItem('mostRecentScore', timeDisplay.innerHTML);
-    
-        }  else {
-            first.classList.add('hide');
-            second.classList.add('hide');
-            
-            
-            setTimeout(() => {
-            first.classList.remove('show');
-            second.classList.remove('show');
-            first.classList.remove('hide');
-            second.classList.remove('hide');
-            first = undefined;
-            second = undefined;
 
-            }, 500);
+        if (matchCounter >= 2) {
+            allMatches();
+        } else {
+            notAllMatches();
         }
-
     })
 });
+
+
+//event listeners for when the game starts or starts again
+again.addEventListener("click", startAgain);
+startButton.addEventListener("click", randomStart);
