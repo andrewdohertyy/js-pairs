@@ -1,0 +1,40 @@
+@use "./styles.scss" as *;
+
+
+
+.show {
+    animation: show 0.5s forwards;
+}
+
+
+.hide {
+    animation: hide 2s forwards;
+}
+
+
+@keyframes show {
+    0% {
+        background-color: $colorlightgreen;
+        color: transparent;
+    }
+
+    100% {
+        background-color: $colorlightgreen;
+        color: $colorblack;
+    }
+}
+
+@keyframes hide {
+    0% {
+        background-color: $colorred;
+        color: $colorblack;
+    }
+
+    100% {
+        background-color: $colorred;
+        color: transparent;
+    }
+}
+
+
+

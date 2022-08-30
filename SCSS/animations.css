@@ -1,0 +1,28 @@
+.show {
+  animation: show 0.5s forwards;
+}
+
+.hide {
+  animation: hide 2s forwards;
+}
+
+@keyframes show {
+  0% {
+    background-color: lightgreen;
+    color: transparent;
+  }
+  100% {
+    background-color: lightgreen;
+    color: black;
+  }
+}
+@keyframes hide {
+  0% {
+    background-color: red;
+    color: black;
+  }
+  100% {
+    background-color: red;
+    color: transparent;
+  }
+}

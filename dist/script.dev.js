@@ -8,16 +8,25 @@ var headingContainer = document.querySelector(".heading");
 var startButton = document.querySelector(".heading__button");
 var scoreTotal = document.querySelector(".heading__score");
 var timeDisplay = document.querySelector(".heading__timer");
-var timeStamp = document.querySelector('.end__timestamp');
+var timeStamp = document.querySelector('.end__timestamp'); // const username = document.getElementById('end__username');
+// const saveScoreButton = document.getElementById('saveScoreBtn');
+// const mostRecentScore = localStorage.getItem('mostRecentScore')
+
 var first;
 var second;
 var timer;
-var matchCounter = 0; //a timer for when the start game is clicked
+var matchCounter = 0; // username.addEventListener('keyup', () => {
+//     saveScoreButton.disabled = !username.value; 
+// })
+// saveHighScore = (event) => {
+//     endGame.preventDefault();
+// }
+//a timer for when the start game is clicked
 
 var startTimer = function startTimer() {
   var sec = 0;
   timer = setInterval(function () {
-    timeDisplay.innerHTML = "Timer: " + sec;
+    timeDisplay.innerHTML = sec;
     sec++;
   }, 1000);
 }; //   setTimeout(() => {
@@ -50,8 +59,8 @@ startButton.addEventListener("click", randomStart);
 
 var cardsMatch = function cardsMatch() {
   if (first.innerHTML === second.innerHTML) {
-    first.style.pointerEvents = 'none';
-    second.style.pointerEvents = 'none';
+    first.style.pointerEvents = 'not-allowed';
+    second.style.pointerEvents = 'not-allowed';
     first = undefined;
     second = undefined;
     matchCounter++;
@@ -77,7 +86,7 @@ cards.forEach(function (card) {
       endGame.classList.remove('display');
       timeDisplay.classList.add('display');
       headingContainer.classList.add('display');
-      timeStamp.innerHTML = "You completed the puzzle in ".concat(timeDisplay.innerHTML, " seconds! Well done!");
+      timeStamp.innerHTML = "You completed the puzzle in ".concat(timeDisplay.innerHTML, " seconds! Well done!"); // localStorage.setItem('mostRecentScore', timeDisplay.innerHTML);
     } else {
       first.classList.add('hide');
       second.classList.add('hide');

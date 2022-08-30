@@ -1,0 +1,154 @@
+@use "./styles.scss" as *;
+
+.heading {
+    text-align: center;
+    font-size: small;
+    padding: 30px;
+    color: $colorwhite;
+
+    &__h1 {
+        padding-bottom: 20px;
+    }
+    &__score {
+        padding-bottom: 10px;
+    }
+    &__button {
+        cursor: pointer;
+    }
+}
+
+.container {
+    display: grid;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap:5px;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100vw;
+
+    &__card {
+        padding-left: 14px;
+        padding-top: 9px;
+        width: 65px;
+        height: 65px;
+        background-color: $colorlightseagreen;
+        color: transparent;
+        display: block;
+        font-size: xx-large;
+        font-weight: bold;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $colorwhite;
+        cursor: pointer;
+    }
+}  
+
+
+.end {
+    text-align: center;
+    margin-top: 15vh;
+    justify-items: center;
+    height: 40%;
+    padding: 40px;
+    color: $colorwhite;
+
+    &__congrats {
+        padding: 20px;
+    }
+
+    &__timestamp {
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+
+    &__play-again {
+        border: solid $colorwhite 2px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        width: 50px;
+        text-align: center;
+        box-sizing: content-box;
+        display: block;
+        margin: 2px auto;
+
+    }
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        border: solid $colorwhite 2px;
+        margin-left: 40px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 80vh;
+        width: 90vw;
+
+        &__card {
+            padding-left: 30px;
+            padding-top: 30px;
+            font-size: 120px;
+            width: 100px;
+            height: 100px;
+            font-size: xx-large;
+        }
+    }
+
+.end {
+    font-size: x-large;
+    height: 60%;
+    padding: 50px;
+    
+    &__play-again {
+        width: 80px;
+
+    }
+}
+}
+
+@media screen and (min-width: 1024px) {
+    .heading {
+        padding: 20px;
+    }
+    .container {
+        margin-left: 50px ;
+        margin-bottom: 25px;
+        padding-left: 35px;
+        padding-right:15px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        height: 98vh;
+        width: 90vw;
+
+        &__card {
+            padding-left: 40px;
+            padding-top: 40px;
+            font-size: 180px;
+            width: 120px;
+            height: 120px;
+            font-size: xx-large;
+        }
+    }
+
+.end {
+    font-size: x-large;
+    height: 60%;
+    padding: 50px;
+    
+    &__play-again {
+        width: 80px;
+
+    }
+}
+}

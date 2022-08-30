@@ -6,18 +6,30 @@ const headingContainer = document.querySelector(".heading")
 const startButton = document.querySelector(".heading__button");
 const scoreTotal = document.querySelector(".heading__score");
 const timeDisplay = document.querySelector(".heading__timer");
-const timeStamp = document.querySelector('.end__timestamp')
+const timeStamp = document.querySelector('.end__timestamp');
+// const username = document.getElementById('end__username');
+// const saveScoreButton = document.getElementById('saveScoreBtn');
+// const mostRecentScore = localStorage.getItem('mostRecentScore')
 
 let first;
 let second;
 let timer;
 let matchCounter = 0;
 
+// username.addEventListener('keyup', () => {
+//     saveScoreButton.disabled = !username.value; 
+// })
+
+// saveHighScore = (event) => {
+//     endGame.preventDefault();
+// }
+
+
 //a timer for when the start game is clicked
 const startTimer = () => {
     let sec = 0;
     timer = setInterval(() => {
-        timeDisplay.innerHTML = "Timer: " + sec;
+        timeDisplay.innerHTML = sec;
         sec ++
     }, 1000)
 }
@@ -57,8 +69,8 @@ startButton.addEventListener("click", randomStart);
 
 const cardsMatch = () => {
     if (first.innerHTML === second.innerHTML) {
-        first.style.pointerEvents = 'none';
-        second.style.pointerEvents = 'none';
+        first.style.pointerEvents = 'not-allowed';
+        second.style.pointerEvents = 'not-allowed';
         first = undefined;
         second = undefined;
         matchCounter ++;
@@ -83,10 +95,12 @@ cards.forEach((card) => {
             timeDisplay.classList.add('display');
             headingContainer.classList.add('display');
             timeStamp.innerHTML = `You completed the puzzle in ${timeDisplay.innerHTML} seconds! Well done!`
+            // localStorage.setItem('mostRecentScore', timeDisplay.innerHTML);
     
         }  else {
             first.classList.add('hide');
             second.classList.add('hide');
+            
             
             setTimeout(() => {
             first.classList.remove('show');
@@ -95,6 +109,7 @@ cards.forEach((card) => {
             second.classList.remove('hide');
             first = undefined;
             second = undefined;
+
             }, 500);
         }
 
