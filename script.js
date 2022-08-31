@@ -7,6 +7,7 @@ const startButton = document.querySelector(".heading__button");
 const scoreTotal = document.querySelector(".heading__score");
 const timeDisplay = document.querySelector(".heading__timer");
 const timeStamp = document.querySelector('.end__timestamp');
+const easterEggButton = document.querySelector('.heading__easter-egg');
 
 let first;
 let second;
@@ -39,7 +40,7 @@ const randomStart = () => {
 
 //restarts game
 const startAgain = () => {
-    location.reload();
+    window.location = window.location
 } 
 
 //when two cards match when clicked one after the other this function will update the match counter
@@ -49,7 +50,10 @@ const cardsMatch = () => {
         second.style.pointerEvents = 'not-allowed';
         first = undefined;
         second = undefined;
+        // first.classList.add('match')
+        // second.classList.add('match')
         matchCounter ++;
+
         scoreTotal.innerHTML = "Pairs made: " + matchCounter;
     }
 }
@@ -68,15 +72,27 @@ const notAllMatches = () => {
     first.classList.add('hide');
     second.classList.add('hide');
     setTimeout(() => {
-    first.classList.remove('show');
-    second.classList.remove('show');
-    first.classList.remove('hide');
-    second.classList.remove('hide');
-    first = undefined;
-    second = undefined;
-    }, 500);
+        first.classList.remove('show');
+        second.classList.remove('show');
+        first.classList.remove('hide');
+        second.classList.remove('hide');
+        first = undefined;
+        second = undefined;
+        }, 500);
 }
 
+
+const helpMe = () => {
+            cards.forEach((card) => {
+            if (card.classList != 'match') {
+                card.classList.add('show')
+                setTimeout(() => {
+                    if (card.classList != 'match'
+                    ){card.classList.remove('show');
+                }},3000)
+            }
+        })
+    }
 
 //loops through the cards array to find matches.
 cards.forEach((card) => {
@@ -90,7 +106,7 @@ cards.forEach((card) => {
         }   cardsMatch();
 
 
-        if (matchCounter >= 2) {
+        if (matchCounter >= 12) {
             allMatches();
         } else {
             notAllMatches();
@@ -102,3 +118,4 @@ cards.forEach((card) => {
 //event listeners for when the game starts or starts again
 again.addEventListener("click", startAgain);
 startButton.addEventListener("click", randomStart);
+easterEggButton.addEventListener("click", helpMe);

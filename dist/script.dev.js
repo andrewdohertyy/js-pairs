@@ -9,6 +9,7 @@ var startButton = document.querySelector(".heading__button");
 var scoreTotal = document.querySelector(".heading__score");
 var timeDisplay = document.querySelector(".heading__timer");
 var timeStamp = document.querySelector('.end__timestamp');
+var easterEggButton = document.querySelector('.heading__easter-egg');
 var first;
 var second;
 var timer;
@@ -37,7 +38,7 @@ var randomStart = function randomStart() {
 
 
 var startAgain = function startAgain() {
-  location.reload();
+  window.location = window.location;
 }; //when two cards match when clicked one after the other this function will update the match counter
 
 
@@ -46,7 +47,9 @@ var cardsMatch = function cardsMatch() {
     first.style.pointerEvents = 'not-allowed';
     second.style.pointerEvents = 'not-allowed';
     first = undefined;
-    second = undefined;
+    second = undefined; // first.classList.add('match')
+    // second.classList.add('match')
+
     matchCounter++;
     scoreTotal.innerHTML = "Pairs made: " + matchCounter;
   }
@@ -73,6 +76,19 @@ var notAllMatches = function notAllMatches() {
     first = undefined;
     second = undefined;
   }, 500);
+};
+
+var helpMe = function helpMe() {
+  cards.forEach(function (card) {
+    if (card.classList != 'match') {
+      card.classList.add('show');
+      setTimeout(function () {
+        if (card.classList != 'match') {
+          card.classList.remove('show');
+        }
+      }, 3000);
+    }
+  });
 }; //loops through the cards array to find matches.
 
 
@@ -88,7 +104,7 @@ cards.forEach(function (card) {
 
     cardsMatch();
 
-    if (matchCounter >= 2) {
+    if (matchCounter >= 12) {
       allMatches();
     } else {
       notAllMatches();
@@ -98,3 +114,4 @@ cards.forEach(function (card) {
 
 again.addEventListener("click", startAgain);
 startButton.addEventListener("click", randomStart);
+easterEggButton.addEventListener("click", helpMe);
