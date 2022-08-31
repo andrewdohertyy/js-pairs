@@ -50,10 +50,7 @@ const cardsMatch = () => {
         second.style.pointerEvents = 'not-allowed';
         first = undefined;
         second = undefined;
-        // first.classList.add('match')
-        // second.classList.add('match')
         matchCounter ++;
-
         scoreTotal.innerHTML = "Pairs made: " + matchCounter;
     }
 }
@@ -67,6 +64,7 @@ const allMatches = () => {
     timeStamp.innerHTML = `You completed the puzzle in ${timeDisplay.innerHTML} seconds! Well done!`
 }
 
+
 // if all 12 matches havent been complete this function sets them back to their original state
 const notAllMatches = () => {
     first.classList.add('hide');
@@ -78,17 +76,18 @@ const notAllMatches = () => {
         second.classList.remove('hide');
         first = undefined;
         second = undefined;
-        }, 500);
+    }, 500);
 }
 
 
+//if you wanted to get a head start 
 const helpMe = () => {
             cards.forEach((card) => {
             if (card.classList != 'match') {
                 card.classList.add('show')
                 setTimeout(() => {
-                    if (card.classList != 'match'
-                    ){card.classList.remove('show');
+                    if (card.classList != 'match'){
+                        card.classList.remove('show');
                 }},3000)
             }
         })
@@ -115,7 +114,7 @@ cards.forEach((card) => {
 });
 
 
-//event listeners for when the game starts or starts again
+//event listeners for when the game starts, starts again and a surprise 
 again.addEventListener("click", startAgain);
 startButton.addEventListener("click", randomStart);
 easterEggButton.addEventListener("click", helpMe);

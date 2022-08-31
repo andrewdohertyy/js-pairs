@@ -47,9 +47,7 @@ var cardsMatch = function cardsMatch() {
     first.style.pointerEvents = 'not-allowed';
     second.style.pointerEvents = 'not-allowed';
     first = undefined;
-    second = undefined; // first.classList.add('match')
-    // second.classList.add('match')
-
+    second = undefined;
     matchCounter++;
     scoreTotal.innerHTML = "Pairs made: " + matchCounter;
   }
@@ -76,7 +74,8 @@ var notAllMatches = function notAllMatches() {
     first = undefined;
     second = undefined;
   }, 500);
-};
+}; //if you wanted to get a head start 
+
 
 var helpMe = function helpMe() {
   cards.forEach(function (card) {
@@ -110,7 +109,7 @@ cards.forEach(function (card) {
       notAllMatches();
     }
   });
-}); //event listeners for when the game starts or starts again
+}); //event listeners for when the game starts, starts again and a surprise 
 
 again.addEventListener("click", startAgain);
 startButton.addEventListener("click", randomStart);
