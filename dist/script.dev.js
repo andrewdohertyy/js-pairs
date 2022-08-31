@@ -44,8 +44,6 @@ var startAgain = function startAgain() {
 
 var cardsMatch = function cardsMatch() {
   if (first.innerHTML === second.innerHTML) {
-    first.style.pointerEvents = 'not-allowed';
-    second.style.pointerEvents = 'not-allowed';
     first = undefined;
     second = undefined;
     matchCounter++;

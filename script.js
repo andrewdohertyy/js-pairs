@@ -46,8 +46,6 @@ const startAgain = () => {
 //when two cards match when clicked one after the other this function will update the match counter
 const cardsMatch = () => {
     if (first.innerHTML === second.innerHTML) {
-        first.style.pointerEvents = 'not-allowed';
-        second.style.pointerEvents = 'not-allowed';
         first = undefined;
         second = undefined;
         matchCounter ++;
@@ -63,7 +61,6 @@ const allMatches = () => {
     headingContainer.classList.add('display');
     timeStamp.innerHTML = `You completed the puzzle in ${timeDisplay.innerHTML} seconds! Well done!`
 }
-
 
 // if all 12 matches havent been complete this function sets them back to their original state
 const notAllMatches = () => {
@@ -103,8 +100,6 @@ cards.forEach((card) => {
             second = card;
             card.classList.add('show');
         }   cardsMatch();
-
-
         if (matchCounter >= 12) {
             allMatches();
         } else {
