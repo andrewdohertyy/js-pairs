@@ -83,7 +83,7 @@ var helpMe = function helpMe() {
         if (card.classList != 'match') {
           card.classList.remove('show');
         }
-      }, 3000);
+      }, 2500);
     }
   });
 }; //loops through the cards array to find matches.

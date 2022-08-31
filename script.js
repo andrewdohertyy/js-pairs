@@ -85,7 +85,7 @@ const helpMe = () => {
                 setTimeout(() => {
                     if (card.classList != 'match'){
                         card.classList.remove('show');
-                }},3000)
+                }},2500)
             }
         })
     }
